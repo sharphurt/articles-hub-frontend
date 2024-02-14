@@ -13,10 +13,6 @@ class ArticleRepository extends BaseRepository {
         return super.create(data)
     }
 
-    update(id, data) {
-        return super.update(id, data)
-    }
-
     delete(id) {
         return super.delete(id)
     }

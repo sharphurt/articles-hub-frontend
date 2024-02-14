@@ -17,9 +17,9 @@ function ArticleList() {
         if (typeof selectedFile === 'undefined')
             return
 
-        const formdata = new FormData();
-        formdata.append("file", selectedFile, selectedFile.name);
-        repository.create(formdata).then(window.location.reload(false))
+        const formData = new FormData();
+        formData.append("file", selectedFile, selectedFile.name);
+        repository.create(formData).then(() => window.location.reload())
     }
 
     return (
@@ -32,7 +32,7 @@ function ArticleList() {
             </ul>
             <hr/>
             <div>
-                <input id="input" type="file" accept=".txt" enctype="multipart/form-data"/>
+                <input id="input" type="file" accept=".txt"/>
                 <button onClick={sendToServer}>Загрузить статью</button>
             </div>
         </div>
