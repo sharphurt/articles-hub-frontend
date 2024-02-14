@@ -34,13 +34,6 @@ export class BaseRepository extends HttpClient {
             .then(transform)
     }
 
-    async update(id, item) {
-        const instance = this.createInstance()
-        return await instance
-            .put(`${BASE_URL}/${id}`, item)
-            .then(transform)
-    }
-
     async delete(id) {
         const instance = this.createInstance()
         return await instance

@@ -3,8 +3,6 @@ import React, {useEffect, useState} from "react";
 import ArticleRepository from "../repository/ArticleRepository";
 import ContentTable from "../components/ContentTable";
 import Article from "../components/Article";
-import axios from "axios";
-import {BASE_URL} from "../constants/constants";
 
 const ArticlePage = () => {
 
@@ -33,7 +31,7 @@ const ArticlePage = () => {
             </a>
 
             <div className={'delete-article-button'} onClick={deleteArticle}>
-                {'Х Delete article'}
+                {'[Х] Delete article'}
             </div>
 
             <ContentTable article={article}/>

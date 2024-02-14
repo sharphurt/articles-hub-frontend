@@ -38,6 +38,16 @@ span + .class-p {
     margin-top: 0;
 }
 
+.class-p + .class-p > span:empty {
+    display: block;
+    height: 1em;
+}
+
+.class-p:has(+ :not(.class-p))  {
+    height: 0;
+}
+
+
 .class-h1 {
     margin: 32px 0 8px;
     font-size: 36px;
@@ -50,22 +60,22 @@ span + .class-p {
 
 .class-h3 {
     font-size: 24px;
-    margin: 12px 0 12px 0;
+    margin: 16px 0 16px 0;
 }
 
 .class-h4 {
     font-size: 22px;
-    margin: 12px 0 12px 0;
+    margin: 16px 0 16px 0;
 }
 
 .class-h5 {
     font-size: 20px;
-    margin: 12px 0 12px 0;
+    margin: 16px 0 16px 0;
 }
 
 .class-h6 {
     font-size: 18px;
-    margin: 12px 0 12px 0;
+    margin: 16px 0 16px 0;
 }
 
 .content-table-container {
