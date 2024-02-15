@@ -10,34 +10,52 @@ const ArticlePage = () => {
     const [article, setArticle] = useState()
     const repository = new ArticleRepository()
     const navigate = useNavigate();
+    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         repository.get(id).then(response => {
             setArticle(response)
+        }).catch(e => {
+            setErrorMessage(e.response.data.error)
         })
     }, [])
 
     const deleteArticle = () => {
         repository.delete(id).then(() => {
-                navigate('../', {replace: true})
-            }
-        )
+            navigate('../', {replace: true})
+        }).catch(e => {
+            setErrorMessage(e.response.data.error)
+        })
     }
 
-    return (article &&
-        <div>
-            <a href={'../'} className={'go-back-button'}>
-                {'<-- Go back to articles'}
-            </a>
+    return (<div>
+        {
+            article &&
+            <div>
+                <a href={'../'} className={'go-back-button'}>
+                    {'<-- Go back to articles'}
+                </a>
 
-            <div className={'delete-article-button'} onClick={deleteArticle}>
-                {'[Х] Delete article'}
+                <div className={'delete-article-button'} onClick={deleteArticle}>
+                    {'[Х] Delete article'}
+                </div>
+
+                <ContentTable article={article}/>
+                <Article article={article}/>
             </div>
-
-            <ContentTable article={article}/>
-            <Article article={article}/>
-        </div>
-    );
+        }
+        {
+            errorMessage &&
+            <div>
+                <div className={'error-message'}>
+                    {errorMessage}
+                </div>
+                <a href={'../'} className={'go-back-button'}>
+                    {'<-- Go back to articles'}
+                </a>
+            </div>
+        }
+    </div>);
 }
 
 export default ArticlePage;

@@ -43,10 +43,9 @@ span + .class-p {
     height: 1em;
 }
 
-.class-p:has(+ :not(.class-p))  {
+.class-p:has(+ :not(.class-p)) > span:empty  {
     height: 0;
 }
-
 
 .class-h1 {
     margin: 32px 0 8px;
@@ -55,7 +54,7 @@ span + .class-p {
 
 .class-h2 {
     font-size: 28px;
-    margin: 16px 0 8px;
+    margin: 16px 0 16px;
 }
 
 .class-h3 {
@@ -139,4 +138,14 @@ a:hover {
     right: 16px;
     cursor: pointer;
     color: red;
+}
+
+.error-message {
+    width: 500px;
+    margin: 32px auto;
+    padding: 32px;
+    height: min-content;
+    background-color: #ffd6d4;
+    color: red;
+    border-radius: 8px;
 }

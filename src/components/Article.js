@@ -10,7 +10,8 @@ function Article({article}) {
 
         return createElement(tag, {
                 id: `${tag}-${node.lineNumber}`,
-                className: `class-${tag} article-node`
+                className: `class-${tag} article-node`,
+                key: node.lineNumber
             },
             children)
     }
